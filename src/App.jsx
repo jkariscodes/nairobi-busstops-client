@@ -1,33 +1,39 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React, {useState} from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./App.css";
+import * as busStopData from "./data/busstops.json";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [activeStop, setActiveStop] = useState(null);
+  const position = [-1.288, 36.825];
+  const zoom = 16;
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Nairobi Bus Stops</h1>
+      <MapContainer center={position} zoom={zoom} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {busStopData.features.map(stop => (
+          <Marker
+            key={stop.properties.stop_id}
+            position={[
+              stop.properties.stop_lat,
+              stop.properties.stop_lon,
+            ]}
+            onClick={() => {
+              setActiveStop(stop);
+            }}
+          >
+            <Popup>
+              <div>
+                <p>{stop.properties.stop_name}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
     </>
   );
 }

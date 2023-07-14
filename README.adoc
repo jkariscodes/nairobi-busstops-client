@@ -1,0 +1,63 @@
+:toc:
+= Nairobi Bus Stops App
+
+React leaflet starter front-end web application for visualizing locations of bus stops in the Nairobi central business
+district. A simple app demonstrating capabilities of Web geographic information systems (GIS) and building blocks of large
+and complex maps and dashboards.
+
+== Folder structure
+
+The source code for the front-end is in the link:src/[`src`] folder. Below is the folder structure of the app.
+
+[source,text]
+----
+nairobi-busstops-client               // Project root directory
+├── public                            // Directory holding static assets for the project
+│   ├── map.svg                       // The favicon file
+├── src                               // Directory containing source code for our application
+│   ├── assets                        // The form for editing the time spent on a project
+│   │   ├── react.svg                 // Boilerplate react asset file
+│   └── App.css                       // Style for the App component
+│   └── App.jsx                       // App React component
+│   └── index.css                     // This exports all forms so that it's even more convenient to
+│   └── main.jsx                      // This is the entrypoint for our React application
+├── .eslintrc.js                      // ESLint configuration file
+├── .gitignore                        // Lists folders and files that shouldn’t be added to your git repository when using git
+├── index.html                        // Entry point for our react app
+├── pnpm-lock.yaml                    // Automatically generated lockfile (similar to package-lock.json) lists versions and dependencies of installed packages
+├── package.json                      // File showing the list of all third-party dependencies
+├── README.md                         // Documentation for this project
+├── vite.config.js                    // Vite configuration file
+
+----
+
+== Testing
+
+== Routing
+
+== Linting
+
+ESLint and Prettier are set up and should work out of the box.
+
+=== Formatting
+
+== Notes
+
+Depending on your development environment set up, you might need to install the
+link:https://pnpm.io/[`pnpm`] packages locally (it can help your editor with autocompletion and
+linting):
+
+[source,bash]
+----
+# From the project root
+cd nairobi-busstops-client
+pnpm install
+----
+
+You should now have the packages installed locally to `node_modules`
+and you should be able to run `npm` scripts locally (not through Docker):
+
+[source,bash]
+----
+pnpm run dev
+----

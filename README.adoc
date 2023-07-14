@@ -1,5 +1,7 @@
 :toc:
-= Nairobi Bus Stops App
+= Nairobi Bus Stops
+
+image::nairobi-bus-stops.png[width=1080,alt="Nairobi Bus Stops Map"]
 
 React leaflet starter front-end web application for visualizing locations of bus stops in the Nairobi central business
 district. A simple app demonstrating capabilities of Web geographic information systems (GIS) and building blocks of large
